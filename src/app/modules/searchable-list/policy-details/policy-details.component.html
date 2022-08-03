@@ -1,0 +1,43 @@
+<ng-container *ngIf="policy$ | async as policy;else loading">
+    <div class="policy-details-header">
+        <h1>Policy Detials Num: {{policy.num}}</h1>
+        <button pTooltip="Back to policies list" tooltipPosition="top" pButton pRipple type="button" (click)="backToListPolicies()" icon="pi pi-arrow-right" class="p-button-rounded p-button-outlined"></button>
+    </div>
+
+    <div class="policy-fields">
+        <div class="policy-field">
+            <div>
+                <h5>Id</h5>
+                <span>{{policy.id}}</span>
+            </div>
+            <div>
+                <h5>Num</h5>
+                <span>{{policy.num}}</span>
+            </div>
+        </div>
+        <div class="policy-field">
+            <div>
+                <h5>Amount</h5>
+                <span>{{policy.amount}}</span>
+            </div>
+            <div>
+                <h5>User Id</h5>
+                <span>{{policy.userId}}</span>
+            </div>
+        </div>
+        <div class="policy-field">
+            <div>
+                <h5>Client Id</h5>
+                <span>{{policy.clientId}}</span>
+            </div>
+            <div>
+                <h5>Description</h5>
+                <span>{{policy.description}}</span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <p-progressSpinner></p-progressSpinner>
+</ng-template>

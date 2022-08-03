@@ -1,0 +1,37 @@
+
+<div class="policy-list-header">
+    <h1>Policies List</h1>
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [formControl]="searchForm" placeholder="Search For Policy Num"/>
+    </span>
+</div>
+<ng-container *ngIf="policies$ | async as policies;else loading">
+    <h5>Number of results : {{policies.length}}</h5>
+    <p-table [value]="policies" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Amount</th>
+                <th>User Id</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+    <ng-template pTemplate="body" let-policy>
+        <tr>
+            <td>{{policy.id}}</td>
+            <td>{{policy.num}}</td>
+            <td>{{policy.amount}}</td>
+            <td>{{policy.userId}}</td>
+            <td><button  pTooltip="View Details" tooltipPosition="top" pButton pRipple type="button" icon="pi pi-eye"  class="p-button-rounded p-button-text"
+                (click)="navigateToPolicyDetails(policy.id)"></button></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</ng-container>
+
+<ng-template #loading>
+    <p-progressSpinner></p-progressSpinner>
+</ng-template>

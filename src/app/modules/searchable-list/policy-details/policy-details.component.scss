@@ -1,0 +1,25 @@
+.policy-details-header{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    h1{
+        text-decoration: underline;
+    }
+
+}
+.policy-fields{
+    display: flex;
+    justify-content: space-around;
+    .policy-field div{
+        display: flex;
+        align-items: center;
+        h5{
+            margin-inline-end:18px;
+            color: #689df8;
+        }
+        h5,span{
+            font-size: 18px;
+            text-shadow: 6px 5px 4px rgba(0,0,0,0.17);
+        }
+    }
+}
