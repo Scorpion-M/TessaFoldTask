@@ -1,3 +1,4 @@
+import { Policy } from './../src/app/modules/searchable-list/models/policy.model';
 export const POLICIES: any = {
     1: {
         id: 1, num: 'PO1', amount: 1000, userId: 1, clientId: 1, description: 'Insurance policy number PO1'
@@ -16,4 +17,7 @@ export const POLICIES: any = {
 
 export function findPolicies(num:string){
     return Object.values(POLICIES).filter((policy) => (policy as any).num == num );
+}
+export function setupPolicies(){
+    return Object.values(POLICIES) as Policy[];
 }
